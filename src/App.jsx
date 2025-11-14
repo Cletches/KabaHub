@@ -463,28 +463,29 @@ const DemoVideo = () => {
   );
 };
 
-// Pricing Section - Modern 3-Column Layout
+// Join for Free Section
 const Pricing = ({ onWaitlistClick }) => {
-  const plans = [
+  const benefits = [
     {
-      name: 'Starter',
-      description: 'Perfect for small teams',
-      price: 'Coming Soon',
-      features: ['Up to 5 users', 'Core CRM features', 'Email support', '5GB storage', 'Basic integrations'],
+      icon: '🎁',
+      title: 'Free Forever Access',
+      description: 'Early adopters get lifetime free access to all premium features'
     },
     {
-      name: 'Growth',
-      description: 'For scaling businesses',
-      price: 'Coming Soon',
-      features: ['Up to 50 users', 'Advanced analytics', 'Priority support', '50GB storage', 'Custom integrations', 'Automation workflows'],
-      highlighted: true,
+      icon: '🚀',
+      title: 'Priority Launch Access',
+      description: 'Be the first to use KabaHub when we launch'
     },
     {
-      name: 'Enterprise',
-      description: 'For large organizations',
-      price: 'Custom',
-      features: ['Unlimited users', 'Enterprise features', 'Dedicated support', 'Unlimited storage', 'Custom solutions', 'SLA guarantee'],
+      icon: '💎',
+      title: 'Exclusive Beta Features',
+      description: 'Get early access to new features before anyone else'
     },
+    {
+      icon: '🎯',
+      title: 'Shape the Product',
+      description: 'Your feedback directly influences our development'
+    }
   ];
 
   return (
@@ -498,81 +499,97 @@ const Pricing = ({ onWaitlistClick }) => {
       </div>
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent-900/50 to-accent-900/80 backdrop-blur-sm"></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto">
-        <div className="text-center mb-20 animate-on-scroll opacity-0">
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight drop-shadow-2xl">
-            Simple, Transparent Pricing
+      <div className="relative z-10 max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-16 animate-on-scroll opacity-0">
+          <div className="inline-block mb-4">
+            <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-primary-500/20 backdrop-blur-md text-primary-200 text-sm font-medium border border-primary-400/30 shadow-lg">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-300 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-400"></span>
+              </span>
+              Limited Time Offer
+            </span>
+          </div>
+          <h2 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight drop-shadow-2xl">
+            Join for <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-accent-400">Free</span>
           </h2>
-          <p className="text-xl text-neutral-200 max-w-2xl mx-auto font-light drop-shadow-lg">
-            Choose the plan that scales with your team
+          <p className="text-xl md:text-2xl text-neutral-200 max-w-3xl mx-auto font-light drop-shadow-lg">
+            Sign up to our waitlist and get lifetime free access to KabaHub. No credit card required.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {plans.map((plan, index) => (
-            <div
-              key={index}
-              className={`animate-on-scroll opacity-0 relative rounded-3xl p-10 transition-all duration-300 ${
-                plan.highlighted
-                  ? 'bg-gradient-to-br from-primary-600 to-accent-600 text-white shadow-2xl scale-105 hover:scale-110'
-                  : 'bg-white/10 backdrop-blur-md border-2 border-white/20 hover:border-primary-400/50 hover:shadow-xl hover:bg-white/20'
-              }`}
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              {plan.highlighted && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-accent-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
-                    Most Popular
-                  </span>
-                </div>
-              )}
+        {/* Center Card */}
+        <div className="max-w-4xl mx-auto mb-16 animate-on-scroll opacity-0" style={{ animationDelay: '100ms' }}>
+          <div className="relative rounded-3xl p-12 bg-gradient-to-br from-primary-600 to-accent-600 text-white shadow-2xl overflow-hidden">
+            {/* Decorative elements */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary-900/30 rounded-full blur-3xl"></div>
 
-              <h3 className={`text-2xl font-bold mb-2 ${plan.highlighted ? 'text-white' : 'text-white'}`}>
-                {plan.name}
-              </h3>
-              <p className={`mb-8 ${plan.highlighted ? 'text-primary-100' : 'text-neutral-200'}`}>
-                {plan.description}
-              </p>
-
+            <div className="relative z-10 text-center">
               <div className="mb-8">
-                <span className={`text-5xl font-bold ${plan.highlighted ? 'text-white' : 'text-white'}`}>
-                  {plan.price}
-                </span>
+                <div className="text-7xl md:text-8xl font-bold mb-4 drop-shadow-2xl">
+                  $0
+                </div>
+                <div className="text-2xl md:text-3xl text-primary-100 font-light">
+                  Forever Free for Early Users
+                </div>
               </div>
 
-              <ul className="space-y-4 mb-10">
-                {plan.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
-                    <svg
-                      className={`w-6 h-6 flex-shrink-0 mt-0.5 ${plan.highlighted ? 'text-primary-200' : 'text-primary-400'}`}
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <span className={plan.highlighted ? 'text-primary-100' : 'text-neutral-200'}>
-                      {feature}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+              <div className="mb-10">
+                <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
+                  Get full access to all features, unlimited users, and premium support—absolutely free.
+                  Join our waitlist today and lock in your lifetime free account.
+                </p>
+              </div>
 
               <button
                 onClick={onWaitlistClick}
-                className={`w-full py-4 px-6 rounded-full font-semibold transition-all transform hover:scale-105 ${
-                  plan.highlighted
-                    ? 'bg-white text-primary-600 hover:bg-neutral-100 shadow-xl'
-                    : 'bg-gradient-to-r from-primary-600 to-accent-600 text-white hover:from-primary-700 hover:to-accent-700 shadow-lg'
-                }`}
+                className="inline-flex items-center gap-3 bg-white text-primary-600 px-10 py-5 rounded-full text-lg font-bold hover:bg-neutral-100 transition-all transform hover:scale-105 shadow-2xl"
               >
-                Join Waitlist
+                <span>Join Waitlist Now</span>
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
               </button>
+
+              <p className="mt-6 text-sm text-white/70">
+                No credit card required. 
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Benefits Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {benefits.map((benefit, index) => (
+            <div
+              key={index}
+              className="animate-on-scroll opacity-0 bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-2xl p-6 hover:bg-white/20 hover:border-primary-400/50 transition-all duration-300 hover:shadow-xl"
+              style={{ animationDelay: `${200 + (index * 100)}ms` }}
+            >
+              <div className="text-4xl mb-4">{benefit.icon}</div>
+              <h3 className="text-xl font-bold text-white mb-2">
+                {benefit.title}
+              </h3>
+              <p className="text-neutral-300 text-sm leading-relaxed">
+                {benefit.description}
+              </p>
             </div>
           ))}
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="text-center mt-16 animate-on-scroll opacity-0" style={{ animationDelay: '600ms' }}>
+          <p className="text-neutral-300 text-lg mb-6">
+            Limited spots available. Join now to secure your free account.
+          </p>
+          <button
+            onClick={onWaitlistClick}
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-primary-600 to-accent-600 text-white px-8 py-4 rounded-full text-base font-semibold hover:from-primary-700 hover:to-accent-700 transition-all transform hover:scale-105 shadow-xl"
+          >
+            Get Started for Free
+          </button>
         </div>
       </div>
     </section>
